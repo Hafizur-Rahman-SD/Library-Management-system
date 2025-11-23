@@ -1,0 +1,38 @@
+.purchase-main {
+    margin-left: 260px;
+    padding: 120px 40px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.btn-add {
+    background: #5a3ff4;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: white;
+}
+.table-wrap {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+.purchase-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.purchase-table th,
+.purchase-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+.del-btn {
+    color: red;
+    cursor: pointer;
+}

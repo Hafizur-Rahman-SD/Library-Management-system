@@ -1,0 +1,241 @@
+/* MAIN AREA */
+.main {
+    margin-left: 260px;
+    padding-top: 110px;
+    padding: 110px 40px 40px 40px;
+    background: #f5f7fb;
+}
+
+/* TOP STAT CARDS */
+.stat-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    width: 260px;
+    height: 130px;
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.stat-card .stat-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.stat-card .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.stat-card .stat-label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Card color styles */
+.yellow { background: linear-gradient(135deg, #fff7d1, #ffe07c); }
+.blue   { background: linear-gradient(135deg, #ddeaff, #a8c8ff); }
+.green  { background: linear-gradient(135deg, #daf5da, #92df92); }
+.purple { background: linear-gradient(135deg, #eedbff, #caa0ff); }
+
+/* MIDDLE BAR SECTION */
+.middle-bar {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.bar-item {
+    background: white;
+    border-radius: 14px;
+    padding: 15px 25px;
+    width: 260px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+}
+
+.bar-item span {
+    display: block;
+}
+
+.bar-count {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bar-label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* border colors */
+.purple-border { border-top: 5px solid #a063ff; }
+.blue-border   { border-top: 5px solid #3e89ff; }
+.green-border  { border-top: 5px solid #4caf50; }
+.red-border    { border-top: 5px solid #ff5353; }
+
+/* CHART + POPULAR SECTION */
+.chart-section {
+    display: flex;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.chart-box,
+.popular-box {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.chart-box {
+    flex: 2;
+}
+
+.popular-box {
+    flex: 1;
+}
+
+.popular-box ul {
+    list-style: none;
+}
+
+.popular-box li {
+    padding: 10px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popular-box li span {
+    font-weight: bold;
+    color: #555;
+}
+
+
+
+
+/* GLOBAL GRID IMPROVEMENTS  */
+.stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+/* smooth responsive */
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0 !important;
+        padding: 100px 15px;
+    }
+    .chart-section {
+        flex-direction: column;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+/*  CARD ANIMATION & EFFECT  */
+
+.stat-card {
+    transform: translateY(0px);
+    transition: 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* gradient overlay on hover */
+.stat-card:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+    border-radius: inherit;
+}
+
+/*  MIDDLE BAR UPGRADE */
+.middle-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.bar-item {
+    transition: 0.28s ease;
+}
+
+.bar-item:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* Animated border effect */
+.bar-item:hover {
+    border-top-width: 8px !important;
+}
+
+
+/*  CHART + POPULAR BOX UPGRADE  */
+.chart-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.chart-box,
+.popular-box {
+    transition: 0.3s ease;
+}
+
+.chart-box:hover,
+.popular-box:hover {
+    box-shadow: 0 12px 22px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+/* popular list style upgrade */
+.popular-box ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.popular-box ul li:hover {
+    background: #fafafa;
+    padding-left: 8px;
+}
+
+/* DARK MODE READY COLORS  */
+/* You can add a dark-mode class later */
+.dark-mode .stat-card {
+    color: #eee;
+    box-shadow: none;
+}
+
+.dark-mode .bar-item {
+    background: #262626;
+    color: #e9e9e9;
+}
+
+.dark-mode .popular-box,
+.dark-mode .chart-box {
+    background: #222;
+}
+
+
+/*  Text Smoothening  */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Allotment</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/allotment.css}">
+</head>
+
+<body>
+
+<!-- Header -->
+<div th:replace="layout/header :: header"></div>
+
+<!-- Sidebar -->
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<!-- MAIN AREA -->
+<div class="allot-main">
+
+    <!-- Breadcrumb -->
+    <div class="bread">
+        <span class="icon">🏠</span>
+        <span> / Book Management / Book Allotment</span>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" placeholder="Search Book...">
+    </div>
+
+    <!-- BOOK LIST GRID -->
+    <div class="book-grid">
+
+        <!-- One Card -->
+        <div class="card">
+            <img src="/css/img/demo/cat.png" alt="Book">
+            <h4>A Story of Yest</h4>
+            <p class="stock green">In Stock: 1</p>
+        </div>
+
+        <div class="card">
+            <img src="/css/img/demo/cat.png" alt="Book">
+            <h4>Educated</h4>
+            <p class="stock red">Out of Stock</p>
+        </div>
+
+        <div class="card">
+            <div class="icon-box">📄</div>
+            <h4>The Book Thief</h4>
+            <p class="stock red">Out of Stock</p>
+        </div>
+
+        <div class="card">
+            <div class="icon-box">📄</div>
+            <h4>Sapiens</h4>
+            <p class="stock red">Out of Stock</p>
+        </div>
+
+        <!--
+        <div class="card" th:each="b : ${books}">
+            <img th:src="@{${b.image}}" alt="book">
+            <h4 th:text="${b.title}"></h4>
+            <p class="stock" th:text="${b.stock > 0 ? 'In Stock: ' + b.stock : 'Out of Stock'}"
+               th:classappend="${b.stock > 0} ? ' green' : ' red'"></p>
+        </div>
+        -->
+
+    </div>
+
+</div>
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+/* MAIN WRAPPER */
+.vendor-create-main {
+    margin-left: 260px; /* sidebar space */
+    padding: 120px 40px 60px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTENT WIDTH CONTROL */
+.vendor-create-main .content-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+/* TOP BAR (TITLE + BACK LINK) */
+.vendor-create-main .top-row {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* Heading + subtitle */
+.vendor-create-main h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.vendor-create-main .sub-text {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Back link */
+.vendor-create-main .back-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4f46e5;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(79, 70, 229, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.vendor-create-main .back-link:hover {
+    background: #eef2ff;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px rgba(79, 70, 229, 0.22);
+}
+
+/* FORM CARD */
+.vendor-create-main .form-card {
+    width: 100%;
+    max-width: 720px;
+    margin: 24px auto 0;
+    background: #ffffff;
+    padding: 26px 30px 24px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
+    border: 1px solid #e5e7eb;
+}
+
+/* ROWS */
+.vendor-create-main .row {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+/* GROUPS (FIELDS) */
+.vendor-create-main .group {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Full width group */
+.vendor-create-main .group.full {
+    flex: 1 1 100%;
+}
+
+/* LABELS */
+.vendor-create-main .group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* INPUTS */
+.vendor-create-main .group input {
+    padding: 11px 13px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    font-size: 14px;
+    color: #111827;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, transform 0.1s ease;
+}
+
+/* Placeholder */
+.vendor-create-main .group input::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Focus states */
+.vendor-create-main .group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    transform: translateY(-1px);
+}
+
+/* BUTTON ROW */
+.vendor-create-main .btn-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+/* BUTTON BASE */
+.vendor-create-main .btn-save,
+.vendor-create-main .btn-cancel {
+    padding: 11px 26px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* SAVE BUTTON */
+.vendor-create-main .btn-save {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.28);
+}
+
+.vendor-create-main .btn-save:hover {
+    background: linear-gradient(135deg, #4338ca, #4f46e5);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(79, 70, 229, 0.32);
+}
+
+.vendor-create-main .btn-save:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(79, 70, 229, 0.22);
+}
+
+/* CANCEL BUTTON */
+.vendor-create-main .btn-cancel {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.18);
+}
+
+.vendor-create-main .btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(248, 113, 113, 0.24);
+}
+
+.vendor-create-main .btn-cancel:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.18);
+}
+
+/* Disabled state (just in case) */
+.vendor-create-main .btn-save:disabled,
+.vendor-create-main .btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* RESPONSIVE */
+
+/* Tablet & small desktop */
+@media (max-width: 992px) {
+    .vendor-create-main {
+        margin-left: 0; /* sidebar collapse hole */
+        padding: 100px 24px 40px;
+    }
+
+    .vendor-create-main .top-row,
+    .vendor-create-main .form-card {
+        max-width: 640px;
+    }
+
+    .vendor-create-main h2 {
+        font-size: 24px;
+    }
+
+    .vendor-create-main .form-card {
+        padding: 24px 22px 22px;
+        border-radius: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .vendor-create-main {
+        padding: 90px 16px 32px;
+    }
+
+    .vendor-create-main .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .vendor-create-main h2 {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .vendor-create-main .back-link {
+        align-self: flex-start;
+        padding: 6px 12px;
+    }
+
+    .vendor-create-main .form-card {
+        margin-top: 18px;
+        padding: 20px 16px 18px;
+        border-radius: 16px;
+    }
+
+    .vendor-create-main .row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .vendor-create-main .btn-row {
+        flex-direction: column;
+    }
+
+    .vendor-create-main .btn-save,
+    .vendor-create-main .btn-cancel {
+        width: 100%;
+        justify-content: center;
+    }
+}

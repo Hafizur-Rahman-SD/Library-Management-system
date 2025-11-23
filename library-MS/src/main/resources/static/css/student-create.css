@@ -1,0 +1,374 @@
+/* MAIN WRAPPER */
+.std-create-main {
+    margin-left: 260px; /* sidebar space */
+    padding: 120px 40px 60px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOP AREA (TITLE + BACK LINK) */
+.std-create-main .top-row {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.std-create-main h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.std-create-main .sub-text {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Back link */
+.std-create-main .back-link {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4f46e5;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(79, 70, 229, 0.16);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.18s ease, color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.std-create-main .back-link:hover {
+    background: #eef2ff;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(79, 70, 229, 0.22);
+}
+
+/* CONTENT ROW: FORM + PREVIEW */
+.std-create-main .content-row {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1.1fr;
+    gap: 26px;
+    align-items: flex-start;
+}
+
+/* FORM CARD */
+.std-create-main .form-card {
+    background: #ffffff;
+    padding: 26px 30px 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.10);
+    border: 1px solid #e5e7eb;
+}
+
+/* ROWS INSIDE FORM */
+.std-create-main .row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+/* FIELD GROUP */
+.std-create-main .group {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABELS */
+.std-create-main .group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+/* INPUTS & SELECT */
+.std-create-main .group input,
+.std-create-main .group select {
+    padding: 11px 13px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background: #f9fafb;
+    color: #111827;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease, transform 0.1s ease;
+}
+
+/* Placeholder style */
+.std-create-main .group input::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Focus state */
+.std-create-main .group input:focus,
+.std-create-main .group select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+    transform: translateY(-1px);
+}
+
+/* Select appearance tweak */
+.std-create-main .group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+    linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position: calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/* BUTTON ROW */
+.std-create-main .btn-row {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* BUTTON BASE */
+.std-create-main .btn-save,
+.std-create-main .btn-cancel {
+    padding: 11px 26px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* SAVE BUTTON */
+.std-create-main .btn-save {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(79, 70, 229, 0.30);
+}
+
+.std-create-main .btn-save:hover {
+    background: linear-gradient(135deg, #4338ca, #4f46e5);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 36px rgba(79, 70, 229, 0.34);
+}
+
+.std-create-main .btn-save:active {
+    transform: translateY(0);
+    box-shadow: 0 10px 24px rgba(79, 70, 229, 0.26);
+}
+
+/* CANCEL BUTTON */
+.std-create-main .btn-cancel {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    box-shadow: 0 8px 18px rgba(248, 113, 113, 0.22);
+}
+
+.std-create-main .btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px rgba(248, 113, 113, 0.26);
+}
+
+.std-create-main .btn-cancel:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(248, 113, 113, 0.22);
+}
+
+/* Disabled state (if needed) */
+.std-create-main .btn-save:disabled,
+.std-create-main .btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* RIGHT SIDE: PREVIEW CARD PANEL */
+.std-create-main .card-preview {
+    background: #ffffff;
+    padding: 22px 22px 20px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+    border: 1px solid #e5e7eb;
+}
+
+.std-create-main .card-preview h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* ID CARD BOX */
+.std-create-main .card-box {
+    border-radius: 16px;
+    background: radial-gradient(circle at top left, #7c3aed, #4f46e5, #2563eb);
+    color: #ffffff;
+    padding: 18px 16px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 18px 36px rgba(79, 70, 229, 0.45);
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle overlay design */
+.std-create-main .card-box::before {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    top: -60px;
+    right: -50px;
+    filter: blur(2px);
+}
+
+/* Card name & info */
+.std-create-main .card-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.std-create-main .card-id {
+    font-size: 13px;
+    opacity: 0.95;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.std-create-main .card-email,
+.std-create-main .card-mobile,
+.std-create-main .card-date {
+    font-size: 13px;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hint text */
+.std-create-main .hint-text {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+
+/* Tablet & small desktop */
+@media (max-width: 1024px) {
+    .std-create-main {
+        margin-left: 0;
+        padding: 100px 24px 40px;
+    }
+
+    .std-create-main .top-row,
+    .std-create-main .content-row {
+        max-width: 900px;
+    }
+
+    .std-create-main .content-row {
+        grid-template-columns: 1.6fr 1fr;
+        gap: 22px;
+    }
+
+    .std-create-main h2 {
+        font-size: 24px;
+    }
+
+    .std-create-main .form-card {
+        padding: 24px 22px 22px;
+        border-radius: 18px;
+    }
+
+    .std-create-main .card-preview {
+        border-radius: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .std-create-main {
+        padding: 90px 16px 28px;
+    }
+
+    .std-create-main .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .std-create-main h2 {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .std-create-main .back-link {
+        margin-top: 4px;
+        padding: 6px 12px;
+        box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    .std-create-main .content-row {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 18px;
+    }
+
+    .std-create-main .form-card,
+    .std-create-main .card-preview {
+        padding: 20px 16px 18px;
+        border-radius: 16px;
+    }
+
+    .std-create-main .row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .std-create-main .btn-row {
+        flex-direction: column;
+    }
+
+    .std-create-main .btn-save,
+    .std-create-main .btn-cancel {
+        width: 100%;
+        justify-content: center;
+    }
+}

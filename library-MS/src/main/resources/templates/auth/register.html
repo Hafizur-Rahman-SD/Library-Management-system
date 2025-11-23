@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="left-side">
+
+        <h1 class="title">Create Account</h1>
+        <p class="subtitle">Join the Library Management System</p>
+
+        <form th:action="@{/auth/register}" method="post" th:object="${registerRequest}" class="form-area">
+
+            <label>Full Name</label>
+            <input th:field="*{fullName}" placeholder="Enter your full name" required>
+
+            <label>Email Address</label>
+            <input th:field="*{email}" type="email" placeholder="Enter email" required>
+
+            <label>Username</label>
+            <input th:field="*{username}" placeholder="Choose username" required>
+
+            <label>Password</label>
+            <input th:field="*{password}" type="password" placeholder="Enter password" required>
+
+            <label>Confirm Password</label>
+            <input th:field="*{confirmPassword}" type="password" placeholder="Confirm password" required>
+
+            <button class="primary-btn" type="submit">Create Account</button>
+
+            <p class="bottom-text">
+                Already have an account?
+                <a th:href="@{/auth/login}">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+    <div class="right-side">
+        <div class="img-box"></div>
+
+        <h2>Library Management System</h2>
+        <p>Manage books & users efficiently.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

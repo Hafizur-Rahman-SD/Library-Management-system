@@ -1,0 +1,108 @@
+.vendor-main {
+    margin-left: 260px;
+    padding: 120px 40px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Top Bar */
+.vendor-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.sub-text {
+    color: #777;
+    font-size: 13px;
+}
+
+.right-tools {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-box {
+    padding: 9px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 260px;
+    font-size: 14px;
+}
+
+.add-btn {
+    padding: 9px 16px;
+    background: #5a3ff4;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Table Design */
+.table-wrap {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+    overflow: hidden;
+}
+
+.vendor-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vendor-table thead {
+    background: #f2f3ff;
+}
+
+.vendor-table th,
+.vendor-table td {
+    text-align: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.ven-name {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Action Buttons */
+.act-btn {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.act-btn.edit { background: #e8f5e9; color: #2e7d32; }
+.act-btn.del { background: #ffebee; color: #c62828; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .vendor-main {
+        margin-left: 0;
+        padding: 100px 16px;
+    }
+
+    .vendor-top-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .right-tools {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+}

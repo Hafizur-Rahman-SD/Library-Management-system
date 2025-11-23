@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="left-side">
+
+        <h1 class="title">Welcome Back</h1>
+        <p class="subtitle">Login to continue</p>
+
+        <!-- ONLY ONE FORM -->
+        <form action="/dashboard" method="get">
+
+            <label>Username</label>
+            <input placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter password" required>
+
+            <button class="primary-btn" type="submit">Sign In</button>
+
+            <p class="bottom-text">
+                Don’t have an account?
+                <a th:href="@{/auth/register}">Sign Up</a>
+            </p>
+
+        </form>
+
+    </div>
+
+    <div class="right-side">
+        <div class="img-box"></div>
+        <h2>Library Management System</h2>
+        <p>Organize books, students & vendors.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscription Type</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/subscription-list.css}">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:replace="layout/header :: header"></div>
+
+<!-- SIDEBAR -->
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<div class="main-box subscription-page">
+
+    <!-- Top bar: breadcrumb + button -->
+    <div class="sub-top-bar">
+        <div class="sub-breadcrumb">
+            <span class="crumb-home">🏠</span>
+            <span>/ Subscription Type</span>
+        </div>
+
+        <a class="btn-add-sub" th:href="@{/subscriptions/create}">
+            + Add Subscription
+        </a>
+    </div>
+
+    <!-- Tools row (Columns / Filters / Density / Export + Search) -->
+    <div class="sub-tools-row">
+        <div class="tools-left">
+            <button type="button" class="tool-pill">▮▮ Columns</button>
+            <button type="button" class="tool-pill">⏳ Filters</button>
+            <button type="button" class="tool-pill">☰ Density</button>
+            <button type="button" class="tool-pill">⬇ Export</button>
+        </div>
+
+        <div class="tools-right">
+            <input id="tableSearch" class="sub-search-input" type="text" placeholder="Search...">
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="sub-table-card">
+        <table class="sub-table" id="subscriptionTable">
+            <thead>
+            <tr>
+                <th>sNo</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Number Of Days</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="s, i : ${subscriptions}">
+                <td th:text="${i.count}"></td>
+                <td th:text="${s.title}"></td>
+                <td>&euro; <span th:text="${s.amount}"></span></td>
+                <td th:text="${s.numberOfDays}"></td>
+
+                <td class="action-col">
+                    <a th:href="@{'/subscriptions/edit/' + ${s.id}}" class="btn-icon-edit">
+                        Edit
+                    </a>
+                    <a th:href="@{'/subscriptions/delete/' + ${s.id}}" class="btn-icon-del">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+</body>
+</html>

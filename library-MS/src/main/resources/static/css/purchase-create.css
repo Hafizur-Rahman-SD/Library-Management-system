@@ -1,0 +1,229 @@
+/* MAIN WRAPPER */
+.form-main {
+    margin-left: 260px;              /* sidebar er jonno space */
+    padding: 120px 40px 60px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page title */
+.form-main > h2 {
+    width: 100%;
+    max-width: 720px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+/* FORM CARD */
+.form-main form {
+    width: 100%;
+    max-width: 720px;
+    background: #ffffff;
+    padding: 28px 32px 26px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
+    border: 1px solid #e5e7eb;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 18px;
+}
+
+/* Labels */
+.form-main form label {
+    grid-column: span 2; /* sob label full width */
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+/* Inputs, selects, textarea */
+.form-main form input,
+.form-main form select,
+.form-main form textarea {
+    grid-column: span 2; /* sob field full width */
+    width: 100%;
+    padding: 11px 13px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background: #f9fafb;
+    color: #111827;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, transform 0.1s ease;
+}
+
+/* Placeholder style */
+.form-main form input::placeholder,
+.form-main form textarea::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Focus state */
+.form-main form input:focus,
+.form-main form select:focus,
+.form-main form textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Disable resize for textarea (if any) */
+.form-main form textarea {
+    resize: none;
+    min-height: 90px;
+}
+
+/* Number inputs spinner remove (Chrome) */
+.form-main form input[type="number"]::-webkit-outer-spin-button,
+.form-main form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-main form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Select style (dropdown arrow custom) */
+.form-main form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+    linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position: calc(100% - 15px) calc(50% - 3px),
+    calc(100% - 10px) calc(50% - 3px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/* BUTTONS */
+.btn-save,
+.btn-cancel {
+    grid-column: span 1;   /* desktop e side-by-side */
+    margin-top: 10px;
+    padding: 11px 26px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    white-space: nowrap;
+}
+
+/* Save button */
+.btn-save {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.28);
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #4338ca, #4f46e5);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(79, 70, 229, 0.32);
+}
+
+.btn-save:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(79, 70, 229, 0.22);
+}
+
+/* Cancel button */
+.btn-cancel {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.18);
+}
+
+.btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(248, 113, 113, 0.24);
+}
+
+.btn-cancel:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.18);
+}
+
+/* Small hover effect disable when disabled */
+.btn-save:disabled,
+.btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*  RESPONSIVE  */
+
+/* Tablet & small desktop */
+@media (max-width: 992px) {
+    .form-main {
+        margin-left: 0;           /* sidebar jodi collapse hoy */
+        padding: 100px 20px 40px;
+    }
+
+    .form-main > h2 {
+        max-width: 640px;
+        font-size: 24px;
+    }
+
+    .form-main form {
+        max-width: 640px;
+        padding: 24px 22px 22px;
+        border-radius: 18px;
+        column-gap: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .form-main {
+        padding: 90px 16px 32px;
+    }
+
+    .form-main > h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .form-main form {
+        grid-template-columns: 1fr;   /* ekdom single column */
+        padding: 20px 16px 18px;
+        border-radius: 16px;
+        row-gap: 14px;
+    }
+
+    .form-main form label,
+    .form-main form input,
+    .form-main form select,
+    .form-main form textarea,
+    .btn-save,
+    .btn-cancel {
+        grid-column: 1 / -1;         /* full width */
+    }
+
+    .btn-save,
+    .btn-cancel {
+        width: 100%;
+        justify-self: stretch;
+    }
+}

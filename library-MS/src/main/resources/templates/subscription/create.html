@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Subscription</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/subscription-create.css}">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:replace="layout/header :: header"></div>
+
+<!-- SIDEBAR -->
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<div class="sub-form-wrapper">
+    <div class="sub-form-card">
+        <form th:action="@{/subscriptions/save}" th:object="${subscription}" method="post">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <h2 class="sub-form-title"
+                th:text="*{id} != null ? 'Edit Subscription' : 'Add Subscription'"></h2>
+
+            <!-- Title -->
+            <div class="form-row">
+                <label>Title</label>
+                <input type="text" th:field="*{title}" placeholder="e.g. Weekly" required>
+            </div>
+
+            <!-- Amount -->
+            <div class="form-row">
+                <label>Amount (&euro;)</label>
+                <input type="number" th:field="*{amount}" step="0.01" placeholder="e.g. 100" required>
+            </div>
+
+            <!-- Number Of Days -->
+            <div class="form-row">
+                <label>Number Of Days</label>
+                <input type="number" th:field="*{numberOfDays}" placeholder="e.g. 7" required>
+            </div>
+
+<!--            &lt;!&ndash; Status &ndash;&gt;-->
+<!--            <div class="form-row">-->
+<!--                <label>Status</label>-->
+<!--                <select th:field="*{active}">-->
+<!--                    <option th:value="true">Active</option>-->
+<!--                    <option th:value="false">Inactive</option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <a th:href="@{/subscriptions/list}" class="btn-cancel">Cancel</a>
+                <button type="submit" class="btn-save">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+</body>
+</html>

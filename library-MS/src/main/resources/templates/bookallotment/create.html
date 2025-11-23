@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book Allotment</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/allotment.css}">
+</head>
+
+<body>
+
+<div th:replace="layout/header :: header"></div>
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<div class="main">
+
+    <h2 class="page-title">➕ New Allotment</h2>
+
+    <form th:action="@{/book-allotment/save}" method="post" class="form-box" th:object="${item}">
+
+        <input type="hidden" th:field="*{id}">
+
+        <label>Book Name</label>
+        <input th:field="*{bookName}" placeholder="Book name" required>
+
+        <label>Student Name</label>
+        <input th:field="*{studentName}" placeholder="Student name" required>
+
+        <label>Allot Date</label>
+        <input th:field="*{allotDate}" type="date" required>
+
+        <label>Status</label>
+        <select th:field="*{status}">
+            <option>Pending</option>
+            <option>Returned</option>
+        </select>
+
+        <button type="submit" class="primary-btn">Save</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

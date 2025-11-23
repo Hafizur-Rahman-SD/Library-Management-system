@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Sidebar</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+
+<body>
+
+<!-- SIDEBAR FRAGMENT -->
+<nav class="sidebar" th:fragment="sidebar">
+
+    <ul>
+
+        <!-- DASHBOARD -->
+        <li><a href="/dashboard" class="active">Dashboard</a></li>
+
+        <!-- BOOKS ALLOTMENT -->
+        <li class="title">Books Allotment</li>
+        <li><a href="/book-allotment"> Book Allotment</a></li>
+
+<!--        &lt;!&ndash; BOOKS MANAGEMENT &ndash;&gt;-->
+<!--        <li class="title">Books Management</li>-->
+<!--        <li><a href="/books/manage">Manage Books</a></li>-->
+<!--        <li><a href="/history/list">Allotment History</a></li>-->
+<!--        <li><a href="/submission/list">Submission</a></li>-->
+
+
+
+        <!-- INVENTORY / ISSUE & RETURN -->
+        <li class="title">Inventory</li>
+        <li><a href="/inventory/list">Issue & Return</a></li>
+
+
+
+
+        <!-- STUDENT MANAGEMENT -->
+        <li class="title">Student Management</li>
+        <li><a href="/students/list">Students</a></li>
+
+
+
+        <!-- PURCHASE BOOKS -->
+        <li class="title">Purchase Books</li>
+        <li><a href="/purchase/list">Purchase Books</a></li>
+
+        <!-- VENDOR -->
+        <li class="title">Vendor Management</li>
+        <li><a href="/vendors/list">Vendors</a></li>
+
+        <!-- PUBLICATIONS -->
+        <li class="title">Publications</li>
+        <li>
+            <a th:href="@{/publications/list}">Publications</a>
+        </li>
+
+
+        <!-- SUBSCRIPTION -->
+        <li class="title">Subscription Type</li>
+        <li><a th:href="@{/subscriptions/list}">Subscription Type</a></li>
+
+
+        <!-- REPORTS -->
+        <li class="title">Reports</li>
+        <li><a th:href="@{/reports}">Reports</a></li>
+
+        <!-- PROFILE -->
+        <li class="title">Profile</li>
+        <li><a th:href="@{/profile}">Profile</a></li>
+
+        <!-- LOGOUT -->
+        <li><a th:href="@{/logout}">Logout</a></li>
+
+    </ul>
+
+</nav>
+<!-- END SIDEBAR -->
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Header</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+
+<body>
+
+<!-- HEADER FRAGMENT -->
+<header class="topbar" th:fragment="header">
+
+    <div class="left-section">
+        <img src="/css/img/LMSlogo.svg" class="logo" alt="Logo">
+
+        <button class="menu-btn">&#9776;</button>
+
+        <div class="greet-box">
+            <h3>Hi, welcome back!</h3>
+            <p>Don't forget to smile today :)</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <span class="today-text">Today is -</span>
+        <span id="currentDate"></span>
+
+        <div class="cart-box">
+            <span class="cart-icon">🛒</span>
+        </div>
+    </div>
+
+</header>
+<!-- END HEADER -->
+
+<!-- DATE SCRIPT -->
+<script>
+    (function () {
+        // date set
+        const el = document.getElementById('currentDate');
+        if (el) {
+            const today = new Date();
+            el.textContent = today.toLocaleDateString('en-GB', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        }
+
+        // sidebar toggle (3 line menu)
+        const menuBtn = document.querySelector('.menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('.main-content') || document.querySelector('.main');
+        const footer = document.querySelector('.footer');
+
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener('click', function () {
+                sidebar.classList.toggle('sidebar-hidden');
+                if (main) main.classList.toggle('expanded');
+                if (footer) footer.classList.toggle('expanded');
+            });
+        }
+
+        // cart icon clickable (future feature)
+        const cart = document.querySelector('.cart-icon');
+        if (cart) {
+            cart.addEventListener('click', function () {
+                // ekhane pore 'notifications / orders' open korba
+                console.log('Cart icon clicked');
+            });
+        }
+    })();
+</script>
+
+
+</body>
+</html>

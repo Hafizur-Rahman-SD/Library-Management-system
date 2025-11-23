@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Purchase</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/purchase-create.css}">
+</head>
+<body>
+
+
+<!-- HEADER & SIDEBAR -->
+<div th:replace="~{layout/header :: header}"></div>
+<div th:replace="~{layout/sidebar :: sidebar}"></div>
+
+<!-- MAIN FORM AREA -->
+<div class="form-main">
+
+    <h2>Add New Purchase</h2>
+
+
+
+<form th:action="@{/purchase/save}" th:object="${purchaseBook}" method="post">
+
+    <label>Book Name</label>
+    <input type="text" th:field="*{bookName}" required>
+
+    <label>Vendor</label>
+    <select th:field="*{vendor.id}" required>
+        <option value="">-- Select Vendor --</option>
+        <option th:each="v : ${vendors}"
+                th:value="${v.id}"
+                th:text="${v.vendorName}">
+        </option>
+    </select>
+
+    <label>Purchase Date</label>
+    <input type="date" th:field="*{purchaseDate}" required>
+
+    <label>Quantity</label>
+    <input type="number" th:field="*{quantity}" required>
+
+    <label>Price Per Book</label>
+    <input type="number" th:field="*{pricePerBook}" step="0.01" required>
+
+    <button type="submit" class="btn-save">Save</button>
+    <a th:href="@{/purchase/list}" class="btn-cancel">Cancel</a>
+</form>
+
+</div>
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+</body>
+</html>

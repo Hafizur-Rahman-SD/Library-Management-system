@@ -1,0 +1,245 @@
+/*
+   PAGE LAYOUT
+   -> Background + center card
+*/
+.form-box {
+    margin-left: 260px;                  /* sidebar er jonno gap */
+    padding: 120px 40px 60px;
+    min-height: 100vh;
+    background: #f5f7fb;
+    font-family: "Inter", system-ui, sans-serif;
+
+    display: flex;
+    justify-content: center;             /* card center e */
+    align-items: flex-start;
+}
+
+/*
+   FORM CARD
+   -> White card + 2 column layout
+   -> Flex + wrap use korchi, grid na
+*/
+.form-box form {
+    width: 100%;
+    max-width: 860px;
+    background: #ffffff;
+    padding: 32px 36px 30px;
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+    border: 1px solid #e5e7eb;
+
+    display: flex;                        /* flex container */
+    flex-wrap: wrap;                      /* line change allowed */
+    column-gap: 24px;                     /* 2 column gap */
+    row-gap: 18px;                        /* row gap */
+}
+
+/* hidden id field nia kono dorkar nai */
+.form-box form input[type="hidden"] {
+    display: none;
+}
+
+/*
+   TITLE
+   -> always full width
+*/
+.form-box form h2 {
+    flex: 0 0 100%;                       /* ekdom full row */
+    font-size: 26px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 8px 0;
+}
+
+/*
+   FIELD WRAPPERS (div er moddhe)
+   -> Default: 2 column = 50% width
+*/
+.form-box form > div {
+    flex: 0 0 calc(50% - 12px);          /* 2 column layout */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Address er div e inline style ache, seta ke full width banacchi */
+.form-box form > div[style] {
+    flex-basis: 100%;                     /* 1 full row */
+}
+
+/*
+   LABELS
+*/
+.form-box form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+/*
+   INPUT / SELECT / TEXTAREA
+*/
+.form-box form input,
+.form-box form select,
+.form-box form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #111827;
+
+    transition: border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.1s ease;
+}
+
+/* Placeholder text */
+.form-box form input::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Focus effect */
+.form-box form input:focus,
+.form-box form select:focus,
+.form-box form textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.16);
+    transform: translateY(-1px);
+}
+
+/* Textarea (Address) – little smaller height */
+.form-box form textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+/* Custom select arrow (nice dropdown) */
+.form-box form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+    linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position: calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/*
+   STATUS FIELD
+   -> Left column e thakbe
+*/
+.form-box form > div:last-of-type {
+    /* eta hocche shesh div = Status */
+    flex-basis: calc(50% - 12px);
+}
+
+/*
+   BUTTONS (SAVE + CANCEL)
+   -> Same row, left side e side-by-side
+*/
+
+/* Common button style */
+.form-box .btn-save,
+.form-box .btn-cancel {
+    flex: 0 0 auto;                       /* nijeder natural width */
+    padding: 10px 30px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.12s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+/* Save button – gradient blue, left e asbe */
+.form-box .btn-save {
+    order: 100;                           /* sob field er pore ashbe */
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(79, 70, 229, 0.30);
+    margin-top: 6px;
+}
+
+/* Cancel button – light red, Save er pashe */
+.form-box .btn-cancel {
+    order: 101;                           /* Save er pore */
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #c01a1a;
+    box-shadow: 0 8px 18px rgba(248, 113, 113, 0.22);
+    margin-top: 6px;
+    margin-left: 14px;                    /* Save & Cancel er gap */
+}
+
+/* Hover states */
+.form-box .btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(79, 70, 229, 0.35);
+}
+
+.form-box .btn-cancel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(248, 113, 113, 0.26);
+}
+
+/* Disabled (jodi konodin lagay) */
+.form-box .btn-save:disabled,
+.form-box .btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*
+   RESPONSIVE – MOBILE / TABLET
+*/
+@media (max-width: 900px) {
+    .form-box {
+        margin-left: 0;
+        padding: 100px 24px 40px;
+    }
+
+    .form-box form {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-box {
+        padding: 90px 16px 30px;
+    }
+
+    /* Sob field single column */
+    .form-box form > div {
+        flex-basis: 100%;
+    }
+    .form-box form > div[style] {
+        flex-basis: 100%;
+    }
+    .form-box form > div:last-of-type {
+        flex-basis: 100%;
+    }
+
+    /* Buttons full width, ekta niche ekta */
+    .form-box .btn-save,
+    .form-box .btn-cancel {
+        width: 100%;
+        margin-left: 0;
+    }
+}

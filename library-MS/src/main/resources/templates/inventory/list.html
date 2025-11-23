@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Inventory Records</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/inventory.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="layout/header :: header"></div>
+
+<!-- Sidebar -->
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<div class="main-box">
+
+    <div class="top-row">
+        <h2>Inventory – Issue & Return</h2>
+        <a class="btn-add" th:href="@{/inventory/create}">+ New Record</a>
+    </div>
+
+    <table class="inv-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Book</th>
+            <th>Student</th>
+            <th>Action</th>
+            <th>Date</th>
+            <th>Qty</th>
+            <th>Status</th>
+            <th>Note</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="r : ${records}">
+
+            <td th:text="${r.id}"></td>
+
+            <!-- Book + Book Code -->
+            <td>
+                <strong th:text="${r.bookTitle}"></strong><br>
+                <small th:text="'Code: ' + ${r.bookCode}"></small>
+            </td>
+
+            <!-- Student + Student ID -->
+            <td>
+                <strong th:text="${r.studentName}"></strong><br>
+                <small th:text="'ID: ' + ${r.studentUniqueId}"></small>
+            </td>
+
+            <td th:text="${r.actionType}"></td>
+            <td th:text="${r.actionDate}"></td>
+            <td th:text="${r.quantity}"></td>
+            <td th:text="${r.status}"></td>
+
+            <!-- View Note Button -->
+            <td>
+                <button type="button"
+                        class="btn-view"
+                        th:attr="data-note=${r.note}"
+                        onclick="showNote(this)">
+                    View
+                </button>
+
+            </td>
+
+            <!-- Edit + Delete -->
+            <td>
+                <a class="btn-edit" th:href="@{'/inventory/edit/' + ${r.id}}">Edit</a>
+                <a class="btn-del" th:href="@{'/inventory/delete/' + ${r.id}}">Delete</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+<script>
+    function showNote(btn) {
+        let text = btn.getAttribute("data-note");
+        if (!text) text = "No Note Found!";
+        alert("NOTE:\n\n" + text);
+    }
+</script>
+
+
+</body>
+</html>

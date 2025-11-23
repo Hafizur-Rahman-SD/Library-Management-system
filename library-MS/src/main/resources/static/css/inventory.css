@@ -1,0 +1,557 @@
+/* INVENTORY LIST + CREATE – MODERN UI STYLES  */
+
+/* LIST PAGE WRAPPER */
+.main-box {
+    margin-left: 260px; /* sidebar space */
+    padding: 120px 40px 60px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOP ROW (TITLE + ADD BUTTON) */
+.main-box .top-row {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.main-box .top-row h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.main-box .sub-text {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* ADD NEW RECORD BUTTON */
+.main-box .btn-add {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    padding: 9px 18px;
+    color: #ffffff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.18s ease;
+}
+
+.main-box .btn-add:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(79, 70, 229, 0.34);
+}
+
+.main-box .btn-add:active {
+    transform: translateY(0);
+    box-shadow: 0 10px 22px rgba(79, 70, 229, 0.24);
+}
+
+/* INVENTORY TABLE WRAPPER */
+.inv-table {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+    font-size: 14px;
+}
+
+/* TABLE HEAD */
+.inv-table thead {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+}
+
+.inv-table th {
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* TABLE BODY CELLS */
+.inv-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #111827;
+    vertical-align: middle;
+}
+
+/* ZEBRA ROWS */
+.inv-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* ROW HOVER EFFECT */
+.inv-table tbody tr:hover {
+    background-color: #eef2ff;
+    transition: background 0.16s ease;
+}
+
+/* STATUS COLUMN (7th) – MAKE IT STAND OUT */
+.inv-table td:nth-child(7) {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d4ed8;
+}
+
+/* VIEW BUTTON */
+.btn-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #bfdbfe;            /* soft blue border */
+    background: #eff6ff;                  /* light sky-blue background */
+    color: #1d4ed8;                       /* deep blue text */
+    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.22);
+    transition: background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.12s ease,
+    transform 0.12s ease,
+    border-color 0.18s ease;
+}
+
+.btn-view:hover {
+    background: #dbeafe;                  /* slightly darker blue */
+    border-color: #93c5fd;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(59, 130, 246, 0.26);
+}
+
+.btn-view:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.22);
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #d8b4fe;        /* soft purple border */
+    background: #f3e8ff;              /* light purple background */
+    color: #7e22ce;                   /* deep purple text */
+    box-shadow: 0 6px 14px rgba(168, 85, 247, 0.22);
+    transition: background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.12s ease,
+    transform 0.12s ease,
+    border-color 0.18s ease;
+}
+
+.btn-edit:hover {
+    background: #e9d5ff;              /* slightly darker purple */
+    border-color: #c084fc;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(168, 85, 247, 0.26);
+}
+
+.btn-edit:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(168, 85, 247, 0.22);
+}
+
+/* DELETE COLUMN CENTER */
+.inv-table td:last-child {
+    text-align: center;
+}
+
+/* DELETE BUTTON */
+.btn-del {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.22);
+    transition: background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.12s ease,
+    transform 0.12s ease,
+    border-color 0.18s ease;
+}
+
+.btn-del:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(248, 113, 113, 0.26);
+}
+
+.btn-del:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(248, 113, 113, 0.22);
+}
+
+/*  CREATE / EDIT INVENTORY FORM  */
+
+.form-box {
+    margin-left: 260px;
+    padding: 120px 40px 60px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Optional heading inside form-box */
+.form-box > h2 {
+    width: 100%;
+    max-width: 720px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+/* FORM CARD */
+.form-box form {
+    width: 100%;
+    max-width: 720px;
+    background: #ffffff;
+    padding: 26px 30px 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.1);
+    border: 1px solid #e5e7eb;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 16px;
+}
+
+/* LABELS */
+.form-box form label {
+    grid-column: span 2;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+/* INPUTS & SELECTS */
+.form-box form input,
+.form-box form select {
+    grid-column: span 2;
+    width: 100%;
+    padding: 11px 13px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background: #f9fafb;
+    color: #111827;
+    transition: border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.1s ease;
+}
+
+/* PLACEHOLDER */
+.form-box form input::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* FOCUS STATE */
+.form-box form input:focus,
+.form-box form select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+    transform: translateY(-1px);
+}
+
+/* REMOVE NUMBER SPINNERS */
+.form-box form input[type="number"]::-webkit-outer-spin-button,
+.form-box form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-box form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* CUSTOM SELECT ARROW */
+.form-box form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+    linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position: calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/* BUTTON ROW (SAVE + CANCEL) */
+.form-box .btn-save,
+.form-box .btn-cancel {
+    grid-column: span 1;
+    margin-top: 12px;
+    padding: 11px 26px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* SAVE BUTTON */
+.form-box .btn-save {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+}
+
+.form-box .btn-save:hover {
+    background: linear-gradient(135deg, #4338ca, #4f46e5);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 36px rgba(79, 70, 229, 0.34);
+}
+
+.form-box .btn-save:active {
+    transform: translateY(0);
+    box-shadow: 0 10px 24px rgba(79, 70, 229, 0.26);
+}
+
+/* CANCEL BUTTON */
+.form-box .btn-cancel {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    box-shadow: 0 8px 18px rgba(248, 113, 113, 0.22);
+}
+
+.form-box .btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px rgba(248, 113, 113, 0.26);
+}
+
+.form-box .btn-cancel:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(248, 113, 113, 0.22);
+}
+
+/* DISABLED STATES */
+.form-box .btn-save:disabled,
+.form-box .btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*  RESPONSIVE  */
+
+/* TABLET */
+@media (max-width: 992px) {
+    .main-box,
+    .form-box {
+        margin-left: 0;
+        padding: 100px 24px 40px;
+    }
+
+    .main-box .top-row {
+        max-width: 900px;
+    }
+
+    .inv-table {
+        max-width: 900px;
+    }
+
+    .form-box > h2,
+    .form-box form {
+        max-width: 640px;
+    }
+
+    .form-box form {
+        padding: 24px 22px 22px;
+        border-radius: 18px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .main-box,
+    .form-box {
+        padding: 90px 16px 28px;
+    }
+
+    .main-box .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .main-box .top-row h2 {
+        font-size: 20px;
+    }
+
+    .main-box .btn-add {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .inv-table {
+        max-width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 14px;
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+        font-size: 12px;
+    }
+
+    .inv-table th,
+    .inv-table td {
+        padding: 10px 12px;
+    }
+
+    .form-box > h2 {
+        max-width: 100%;
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .form-box form {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        padding: 20px 16px 18px;
+        border-radius: 16px;
+        row-gap: 14px;
+    }
+
+    .form-box form label,
+    .form-box form input,
+    .form-box form select {
+        grid-column: 1 / -1;
+    }
+
+    .form-box .btn-save,
+    .form-box .btn-cancel {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+
+/*
+   CREATE FORM 2-COLUMN GRID
+    */
+
+.form-box form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 22px 28px;
+}
+
+/* Full-width items */
+.form-box h2,
+.form-box button,
+.form-box .btn-save,
+.form-box .btn-cancel,
+.form-box textarea {
+    grid-column: span 2;
+}
+
+/* Inputs */
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    background: #f5f7fb;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-box label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+/* Form rows fixed alignment */
+.form-box div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Responsive (mobile) → 1 column layout */
+@media (max-width: 780px) {
+    .form-box form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-save,
+    .btn-cancel,
+    .form-box textarea {
+        grid-column: span 1 !important;
+    }
+
+    .form-box {
+        padding: 20px;
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Books</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/purchase.css}">
+</head>
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+<div th:replace="~{layout/sidebar :: sidebar}"></div>
+
+<div class="purchase-main">
+
+    <div class="top-row">
+        <h2>Purchase Management</h2>
+        <a th:href="@{/purchase/create}" class="btn-add">+ Purchase New Book</a>
+    </div>
+
+    <div class="table-wrap">
+        <table class="purchase-table">
+            <thead>
+            <tr>
+                <th>sNo</th>
+                <th>Book Name</th>
+                <th>Vendor</th>
+                <th>Quantity</th>
+                <th>Per Book Price</th>
+                <th>Purchase Date</th>
+                <th>Invoice</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="p,i : ${books}">
+                <td th:text="${i.index+1}"></td>
+                <td th:text="${p.bookName}"></td>
+                <td th:text="${p.vendor.vendorName}"></td>
+                <td th:text="${p.quantity}"></td>
+                <td>$ <span th:text="${p.pricePerBook}"></span></td>
+                <td th:text="${p.purchaseDate}"></td>
+                <td>
+                    <a th:text="${p.invoiceNumber}"></a>
+                </td>
+                <td>
+
+                    <a href="#" th:attr="data-id=${p.id}" class="del-btn">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+<script>
+    document.querySelectorAll(".del-btn").forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (confirm("Delete this record?")) {
+                window.location.href = "/purchase/delete/" + this.getAttribute("data-id");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

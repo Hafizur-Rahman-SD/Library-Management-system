@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/report.css}">
+</head>
+<body>
+
+<!-- HEADER -->
+<div th:replace="layout/header :: header"></div>
+
+<!-- SIDEBAR -->
+<div th:replace="layout/sidebar :: sidebar"></div>
+
+<div class="report-main">
+
+    <!-- Breadcrumb -->
+    <div class="report-breadcrumb">
+        <span>🏠 / Report</span>
+    </div>
+
+    <!-- DATE RANGE CARD -->
+    <div class="report-range-card">
+        <div class="range-title">Choose Date Range</div>
+
+        <form class="range-form" th:action="@{/reports}" method="get">
+            <div class="range-field">
+                <label>Start Date</label>
+                <input type="date" name="startDate"
+                       th:value="${startDate}">
+            </div>
+
+            <div class="range-field">
+                <label>End Date</label>
+                <input type="date" name="endDate"
+                       th:value="${endDate}">
+            </div>
+
+            <div class="range-submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="report-summary-row">
+
+        <div class="summary-card purchase">
+            <div class="icon">🛒</div>
+            <div class="text">
+                <span class="label">Total Purchase</span>
+                <span class="value">
+                    € <span th:text="${totalPurchase}">0.00</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="summary-card fine">
+            <div class="icon">✂</div>
+            <div class="text">
+                <span class="label">Total Fine</span>
+                <span class="value">
+                    € <span th:text="${totalFine}">0.00</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="summary-card allotment">
+            <div class="icon">📘</div>
+            <div class="text">
+                <span class="label">Book Allotment</span>
+                <span class="value">
+                    € <span th:text="${totalAllotment}">0.00</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="summary-card receive">
+            <div class="icon">📥</div>
+            <div class="text">
+                <span class="label">Book Receive</span>
+                <span class="value"
+                      th:text="${bookReceiveCount}">0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TABS -->
+    <div class="report-tabs">
+        <button class="tab-btn active" data-tab="tab-allotment">Book Allotment</button>
+        <button class="tab-btn" data-tab="tab-purchase">Purchase Details</button>
+        <button class="tab-btn" data-tab="tab-submission">Submission Details</button>
+    </div>
+
+    <!-- TABLE TOOLS -->
+    <div class="report-tools">
+        <div class="tools-left">
+            <button id="btnColumns" class="tool-pill">▮▮ Columns</button>
+            <button id="btnFilters" class="tool-pill">⏳ Filters</button>
+            <button id="btnDensity" class="tool-pill">☰ Density</button>
+            <button id="btnExport" class="tool-pill">⬇ Export</button>
+        </div>
+        <div class="tools-right">
+            <input id="searchInput" type="text" class="search-box" placeholder="Search...">
+        </div>
+    </div>
+
+    <!-- TAB CONTENT: BOOK ALLOTMENT -->
+    <div id="tab-allotment" class="tab-content active">
+        <div class="report-table-card">
+            <table class="report-table">
+                <thead>
+                <tr>
+                    <th>sNo.</th>
+                    <th>Book Name</th>
+                    <th>Student Name</th>
+                    <th>Student Email</th>
+                    <th>Quantity</th>
+                    <th>Total Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="row, i : ${allotmentRows}">
+                    <td th:text="${i.index + 1}"></td>
+                    <td th:text="${row.bookName}"></td>
+                    <td th:text="${row.studentName}"></td>
+                    <td th:text="${row.studentEmail}"></td>
+                    <td th:text="${row.quantity}"></td>
+                    <td th:text="'€ ' + ${row.totalAmount}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB CONTENT: PURCHASE DETAILS (empty for now) -->
+    <div id="tab-purchase" class="tab-content">
+        <div class="report-table-card empty-info">
+            Purchase details report will come here…
+        </div>
+    </div>
+
+    <!-- TAB CONTENT: SUBMISSION DETAILS (empty for now) -->
+    <div id="tab-submission" class="tab-content">
+        <div class="report-table-card empty-info">
+            Submission details report will come here…
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+<!-- SIMPLE JS FOR TABS + DUMMY BUTTONS -->
+<script>
+    // tab switch
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            const id = btn.getAttribute('data-tab');
+            document.getElementById(id).classList.add('active');
+        });
+    });
+
+    function popup(msg) {
+        alert(msg);
+    }
+
+    document.getElementById('btnColumns').addEventListener('click', () => {
+        popup('Column options will be implemented later.');
+    });
+    document.getElementById('btnFilters').addEventListener('click', () => {
+        popup('Filter feature coming soon.');
+    });
+    document.getElementById('btnDensity').addEventListener('click', () => {
+        popup('Row density change will be added later.');
+    });
+    document.getElementById('btnExport').addEventListener('click', () => {
+        popup('Export (PDF / CSV / Print) will be implemented soon.');
+    });
+    document.getElementById('searchInput').addEventListener('focus', () => {
+        // just subtle info – no spam on each keypress
+        console.log('Search will filter table later.');
+    });
+</script>
+
+</body>
+</html>

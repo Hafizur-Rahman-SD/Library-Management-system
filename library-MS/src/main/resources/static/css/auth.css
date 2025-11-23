@@ -1,0 +1,364 @@
+/* wrapper */
+.auth-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* left form section */
+.left-side {
+    width: 45%;
+    background: #ffffff;
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 30px;
+    color: #2b0e4e;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 28px;
+}
+
+.form-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-area label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.form-area input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    margin-bottom: 15px;
+    transition: .2s;
+    font-size: 15px;
+}
+
+.form-area input:focus {
+    border-color: #6c2ce6;
+    box-shadow: 0 0 0 2px rgba(108, 44, 230, .15);
+    outline: none;
+}
+
+/* password with eye */
+.password-box {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+}
+
+/* main action button */
+.primary-btn {
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #6c2ce6;
+    color: white;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.primary-btn:hover {
+    background: #5120b7;
+    transform: translateY(-2px);
+}
+
+/* divider line */
+.divider {
+    margin: 22px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* google login */
+.google-btn {
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    background: #fff;
+    transition: .25s;
+}
+.google-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+.google-btn img {
+    width: 22px;
+}
+
+/* bottom text */
+.bottom-text {
+    margin-top: 16px;
+    font-size: 14px;
+}
+.bottom-text a {
+    color: #6c2ce6;
+    font-weight: 600;
+}
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+/* right image area */
+.right-side {
+    width: 55%;
+    background: #2b0e4e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.img-box {
+    width: 70%;
+    height: 350px;
+    background: white;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+    background-size: cover;
+    background-position: center;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    .left-side, .right-side {
+        width: 100%;
+        padding: 35px;
+    }
+    .img-box {
+        width: 90%;
+        height: 240px;
+    }
+}
+
+
+
+/*
+   AUTH PAGE MAIN CONTAINER
+ */
+
+.auth-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #f5f2ff;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+/*
+   LEFT SIDE (FORM)
+ */
+
+.left-side {
+    width: 45%;
+    background: #ffffff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* title */
+.title {
+    font-size: 32px;
+    color: #2a0c4a;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* subtitle */
+.subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* form styling */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* label */
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* input */
+form input {
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+/* input focus */
+form input:focus {
+    border-color: #5c2de8;
+    box-shadow: 0 0 0 3px rgba(92, 45, 232, 0.15);
+    outline: none;
+}
+
+/* button */
+.primary-btn {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #5c2de8;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.25s;
+}
+
+.primary-btn:hover {
+    background: #4a1fc1;
+    transform: translateY(-2px);
+}
+
+/* bottom text */
+.bottom-text {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #444;
+}
+
+.bottom-text a {
+    color: #5c2de8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+/*
+   RIGHT SIDE (IMAGE + TEXT)
+ */
+
+/* FIXED: card box must have relative position */
+.img-box {
+    width: 70%;
+    height: 350px;
+    border-radius: 25px;
+    background: #ffffff;
+    box-shadow: 0px 7px 30px rgba(0,0,0,0.25);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 30px;
+
+    position: relative;        /*  IMPORTANT FIX */
+    overflow: hidden;          /* clean look */
+}
+
+/* TEXT INSIDE WHITE CARD (PERFECT CENTERED) */
+.img-box::after {
+    content: "Unlock Knowledge — Discover, Learn & Grow 📚";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 22px;
+    color: #2a0c4a;
+    font-weight: 700;
+    text-align: center;
+    width: 80%;
+    line-height: 1.4;
+
+    opacity: 0.95;
+}
+
+/* RIGHT SIDE LAYOUT */
+.right-side {
+    width: 55%;
+    background: #2a0c4a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+/* headings */
+.right-side h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.right-side p {
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/*
+   RESPONSIVE DESIGN
+ */
+
+@media (max-width: 900px) {
+    .auth-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        height: auto;
+        padding: 35px;
+    }
+
+    .img-box {
+        width: 90%;
+        height: 250px;
+    }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
